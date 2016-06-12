@@ -1,6 +1,7 @@
 FROM java:8u45-jdk
 
-RUN apt-get update && apt-get install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
+RUN echo 'deb http://packages.linuxmint.com debian import' >> /etc/apt/sources.list
+RUN apt-get update && apt-get install -y --force-yes wget git curl zip firefox xvfb && rm -rf /var/lib/apt/lists/*
 
 ENV JENKINS_HOME /var/jenkins_home
 
